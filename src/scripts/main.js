@@ -6,7 +6,7 @@ const state = {
 
 async function init() {
   console.log(await availableCurrency());
-  console.log(await getData("AED", "BRL"))
+  console.log(await getData("USD", "BRL"))
 }
 
 init()
