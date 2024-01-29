@@ -1,0 +1,23 @@
+header{
+  padding: 5vh 2vw;
+  width: 100%;
+
+  display: flex;
+  align-items: last baseline;
+  justify-content: center;
+  gap: 5px;
+}
+header > div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+header > div > span{
+  text-transform: uppercase;
+  font-size: 5vw;
+  font-weight: bolder;
+}
+header > :nth-child(3) {
+  transform: scaleX(-1);
+}
