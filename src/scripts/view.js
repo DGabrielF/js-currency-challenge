@@ -21,22 +21,23 @@ function removeLetters(string) {
   return string.replace(/[a-zA-Z]/g,"")
 }
 
-export function handleCode(value) {
-  state.codeInput = value
-}
-
 export function handleCodein(value) {
   state.codeinInput = value
 }
 
 export async function calculate(){
-  console.log("codeInput")
-  console.log(state.codeInput)
-  console.log("codeinInput")
-  console.log(state.codeinInput)
-  console.log("data")
-  state.data = await getData(state.codeInput, state.codeinInput)
-  console.log(state.data)
+  const codeSelect = document.querySelector("#code_input");
+  state.codeInput = extractBracketsContent(codeSelect.value);
+  const codeinSelect = document.querySelector("#codeIn_input");
+  state.codeinInput = extractBracketsContent(codeinSelect.value);
+  const response = await getData(state.codeInput, state.codeinInput);
+  state.data = response[`${state.codeInput}${state.codeinInput}`];
+  state.buyPrice = state.valueInput * state.data.ask;
+  state.sellPrice = state.valueInput * state.data.bid;
+  const buySimulation = document.querySelector(".buy_simulation");
+  buySimulation.innerHTML = `Caso você esteja interessado em comprar ${state.codeinInput} usando ${state.codeInput}, você terá: ${state.codeinInput} ${state.buyPrice}.`;
+  const sellSimulation = document.querySelector(".sell_simulation");
+  sellSimulation.innerHTML = `Caso você esteja interessado em vender ${state.codeInput} por ${state.codeinInput}, você obterá: ${state.codeinInput} ${state.sellPrice}.`;
 }
 
 export function createOptions() {
@@ -47,7 +48,6 @@ export function createOptions() {
   for (let key in state.availableCurrencies) {
     const codeOption = document.createElement("option")
     codeOption.textContent = `${state.availableCurrencies[key]} (${key})`
-    codeOption.addEventListener("click", () => handleCode(key))
     if (key === "BRL") {
       codeOption.selected = true;
     }
@@ -59,5 +59,15 @@ export function createOptions() {
       codeinOption.selected = true;
     }
     codeinSelect.appendChild(codeinOption)
+  }
+}
+
+function extractBracketsContent(string) {
+  const regex = /\(([^)]+)\)/;
+  const result = string.match(regex);
+  if (result) {
+      return result[1];
+  } else {
+      return null;
   }
 }
