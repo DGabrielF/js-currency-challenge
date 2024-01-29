@@ -1,4 +1,4 @@
-import { availableCurrency, getData } from "./api.js"
+import { availableCurrency } from "./api.js"
 import { calculate, createOptions, handleValue } from "./view.js";
 
 export const state = {
