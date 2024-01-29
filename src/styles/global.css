@@ -27,3 +27,27 @@ body{
   border-radius: 2px;
   background-color: #222222aa;
 }
+.title>h1{
+  text-align: center;
+}
+select{
+  padding: 4px 2px;
+  width: 98%;
+
+  text-align: center;
+
+  border: 2px solid #222222aa;
+  background-color: transparent;
+  border-radius: 10px;
+}
+
+input{
+  padding: 4px 2px;
+  width: 98%;
+
+  text-align: center;
+
+  border: 2px solid #222222aa;
+  background-color: transparent;
+  border-radius: 10px;
+}

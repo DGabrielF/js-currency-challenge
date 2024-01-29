@@ -5,8 +5,18 @@
   align-items: center;
   justify-content: center;
 }
+.value_box{
+  margin-bottom: 1vh;
+
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: .5vh;
+}
 .input_area{
   padding: 1vh 2vw;
+  margin-bottom: 1vh;
 
   display: flex;
   flex-direction: column;
@@ -19,22 +29,52 @@
 
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: last baseline;
   justify-content: center;
   gap: 1vw;
+}
+.btn_invert-codes{
+  width: 26px;
+  height: 26px;
+  padding: 3px;
+  border: 2px solid #222222aa;
+  border-radius: 50%;
+  background-color: transparent;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn_invert-codes svg{
+  width: 20px;
+  height: 20px;
 }
 .code_box, .codeIn_box{
   width: 100%;
   
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1vw;
+  gap: .5vh;
+}
+.btn_start{
+  margin-top: 1vh;
+  padding: 4px 2px;
+  width: 98%;
+
+  border: 2px solid #222222aa;
+  background-color: transparent;
+  border-radius: 10px;
 }
 
 @media only screen and (max-width: 504px) {
   .select_codes{
     flex-direction: column;
+    align-items: center;
+    gap: 1vh;
+  }
+  .btn_invert-codes{
+    transform: rotate(90deg);
   }
 }

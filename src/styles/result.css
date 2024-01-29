@@ -5,3 +5,14 @@
   justify-content: center;
   gap: 1vh;
 }
+.responses{
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+}
+.result_title{
+  text-align: center;
+}
+.buy_simulation, .sell_simulation{
+  text-align: center;
+}

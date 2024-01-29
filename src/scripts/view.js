@@ -71,3 +71,12 @@ function extractBracketsContent(string) {
       return null;
   }
 }
+
+export function swapValues() {
+  const codeSelect = document.querySelector("#code_input");
+  const codeinSelect = document.querySelector("#codeIn_input");
+
+  const temporary = codeSelect.value;
+  codeSelect.value = codeinSelect.value;
+  codeinSelect.value = temporary;
+}

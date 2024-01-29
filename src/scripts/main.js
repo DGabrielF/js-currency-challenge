@@ -1,5 +1,5 @@
 import { availableCurrency } from "./api.js"
-import { calculate, createOptions, handleValue } from "./view.js";
+import { calculate, createOptions, handleValue, swapValues } from "./view.js";
 
 export const state = {
   availableCurrencies: null,
@@ -13,10 +13,12 @@ export const state = {
 
 async function init() {
   state.availableCurrencies = await availableCurrency();
-  const inputVelue = document.querySelector("#value_input")
-  inputVelue.addEventListener("input", e => handleValue(e))
-  const startButton = document.querySelector(".btn_start")
-  startButton.addEventListener("click", () => calculate())
+  const inputVelue = document.querySelector("#value_input");
+  inputVelue.addEventListener("input", e => handleValue(e));
+  const startButton = document.querySelector(".btn_start");
+  startButton.addEventListener("click", () => calculate());
+  const swapBtn = document.querySelector(".btn_invert-codes");
+  swapBtn.addEventListener("click", () => swapValues())
   createOptions()
 }
 
