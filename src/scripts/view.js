@@ -35,9 +35,9 @@ export async function calculate(){
   state.buyPrice = state.valueInput * state.data.ask;
   state.sellPrice = state.valueInput * state.data.bid;
   const buySimulation = document.querySelector(".buy_simulation");
-  buySimulation.innerHTML = `Caso você esteja interessado em comprar ${state.codeinInput} usando ${state.codeInput}, você terá: ${state.codeinInput} ${state.buyPrice}.`;
+  buySimulation.innerHTML = `Caso você esteja interessado em comprar ${state.codeinInput} usando ${state.codeInput}, você terá: ${state.codeinInput} ${state.buyPrice.toFixed(3)}.`;
   const sellSimulation = document.querySelector(".sell_simulation");
-  sellSimulation.innerHTML = `Caso você esteja interessado em vender ${state.codeInput} por ${state.codeinInput}, você obterá: ${state.codeinInput} ${state.sellPrice}.`;
+  sellSimulation.innerHTML = `Caso você esteja interessado em vender ${state.codeInput} por ${state.codeinInput}, você obterá: ${state.codeinInput} ${state.sellPrice.toFixed(3)}.`;
 }
 
 export function createOptions() {
